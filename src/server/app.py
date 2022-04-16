@@ -11,7 +11,6 @@ wildcard-import: using the wildcard is convenient (no need to change main file)
 ### IMPORTS
 ## third-party
 from flask import Flask
-from flask.helpers import send_from_directory
 from flask_login import LoginManager
 
 ## native
