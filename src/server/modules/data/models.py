@@ -12,6 +12,8 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
+### CLASSES
+# entities
 class User(UserMixin, db.Model):
     __tablename__ = "User"
     id = db.Column(db.Integer, primary_key=True)

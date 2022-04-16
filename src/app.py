@@ -1,3 +1,5 @@
+# DEPRECATED; transfer code to other files
+
 # pylint: disable = missing-function-docstring, no-member, unused-wildcard-import, wildcard-import
 """
 Disabled Pylint Warnings & Justifications:
