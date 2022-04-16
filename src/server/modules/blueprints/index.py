@@ -18,4 +18,5 @@ index_blueprint = Blueprint("index", __name__)
 def index():
     if current_user.is_authenticated:
         return redirect(url_for(""))
+
     return redirect(url_for("login.login"))
