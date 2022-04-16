@@ -13,9 +13,7 @@ from flask.helpers import send_from_directory
 # from flask_login import login_user, logout_user
 
 
-login_blueprint = Blueprint(
-    "login", __name__, static_folder="../../../client/build", static_url_path=""
-)
+login_blueprint = Blueprint("login", __name__, static_folder="../../../client/build")
 
 
 @login_blueprint.route("/login")

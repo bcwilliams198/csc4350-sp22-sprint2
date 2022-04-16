@@ -11,6 +11,7 @@ wildcard-import: using the wildcard is convenient (no need to change main file)
 ### IMPORTS
 ## third-party
 from flask import Flask
+from flask.helpers import send_from_directory
 from flask_login import LoginManager
 
 ## native
@@ -25,11 +26,7 @@ from modules.data.models import *
 
 ### FUNCTIONS
 def create_app():
-    app = Flask(
-        __name__,
-        # static_folder="../client/build",
-        # static_url_path=""
-    )
+    app = Flask(__name__, static_folder="../client/build", static_url_path="")
 
     # before returning, collect all blueprints from the blueprints folder
     app.register_blueprint(index_blueprint)
