@@ -30,7 +30,7 @@ def get_id_from_url(url):
     return int(url.split("/")[-2])
 
 
-def get_pokemon(pokemon):
+def get_pokemon_data(pokemon):
     def mapper(_object, **args):
         category = args["category"]
         properties = args["properties"]
