@@ -17,9 +17,6 @@ load_dotenv(find_dotenv())  # load environment variables into scope
 # Google
 GOOGLE_CLIENT_ID = getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = getenv("GOOGLE_CLIENT_SECRET")
-GOOGLE_DISCOVERY_URL = (
-    "https://accounts.google.com/.well-known/openid-configuration"
-)  # probably move to different file
 
 # Heroku
 HOST = getenv("IP", "0.0.0.0")
