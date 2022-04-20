@@ -17,7 +17,7 @@ from flask import Flask
 ## native
 # data
 # from modules.data.env import HOST, PORT
-from .modules.data.env import HOST, PORT
+from .modules.data.env import APP_SECRET_KEY, HOST, PORT
 from .modules.data.models import *
 
 # functions
@@ -39,6 +39,7 @@ def create_app():
 ### MAIN PROCEDURE
 if __name__ == "__main__":
     app = create_app()
+    app.config["SECRET_KEY"] = APP_SECRET_KEY
     init_login_manager(app)
     # init database connection maybe? unsure how modules will share it
     # app.run(debug=True, host=HOST, port=PORT, ssl_context="adhoc")  # development

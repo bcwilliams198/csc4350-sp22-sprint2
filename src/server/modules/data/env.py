@@ -14,6 +14,9 @@ from dotenv import find_dotenv, load_dotenv
 ### ENVIRONMENT VARIABLES
 load_dotenv(find_dotenv())  # load environment variables into scope
 
+# Flask
+APP_SECRET_KEY = getenv("APP_SECRET_KEY")
+
 # Google
 GOOGLE_CLIENT_ID = getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = getenv("GOOGLE_CLIENT_SECRET")
