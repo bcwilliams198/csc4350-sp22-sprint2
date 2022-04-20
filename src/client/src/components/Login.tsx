@@ -1,8 +1,12 @@
+// IMPORTS
+// third-party
 import Button from "react-bootstrap/Button";
 
 export default function Login() {
-    function handleClick() {
-        console.log("The button was clicked");
+    async function handleClick() {
+        const response = await fetch("/login_request", {mode: 'no-cors'});
+        const google_url = await response.json();
+        window.location.href = google_url;
     }
 
     return (
