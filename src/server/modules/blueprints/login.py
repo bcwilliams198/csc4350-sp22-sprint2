@@ -14,7 +14,7 @@ from flask_login import login_user, logout_user
 
 # native
 from ..functions.external_apis.google import get_google_user, get_login_request_uri
-from ..functions.init.db import db, User
+from ..functions.init.db import db, User  # maybe should use models instead?
 
 
 login_blueprint = Blueprint("login", __name__, static_folder="../../../client/build")
@@ -61,10 +61,8 @@ def login_request_callback():
     user = User.query.filter_by(email=email).first()
     if user is None:
         user = User(email=email, name=given_name, picture=picture)
-        # print("Adding a new user")
-        # if not add them to db
         db.session.add(user)
         db.session.commit()
 
-    # login_user(user)
+    login_user(user)
     return redirect(url_for("index.index"))

@@ -8,15 +8,16 @@ missing-function-docstring: useful, but not necessary; takes up space
 ### IMPORTS
 # third-party
 from flask import Blueprint, redirect, url_for
+from flask.helpers import send_from_directory
 from flask_login import current_user
 
 
-index_blueprint = Blueprint("index", __name__)
+index_blueprint = Blueprint("index", __name__, static_folder="../../../client/build")
 
 
 @index_blueprint.route("/")
 def index():
     if current_user.is_authenticated:
-        return redirect(url_for(""))
+        return send_from_directory(index_blueprint.static_folder, "index.html")
 
     return redirect(url_for("login.login"))
