@@ -9,6 +9,9 @@ wildcard-import: using the wildcard is convenient (no need to change main file)
 
 
 ### IMPORTS
+## standard
+from os import environ
+
 ## third-party
 from flask import Flask
 
@@ -17,11 +20,12 @@ from flask import Flask
 ## native
 # data
 # from modules.data.env import HOST, PORT
-from .modules.data.env import APP_SECRET_KEY, HOST, PORT
+from .modules.data.env import APP_SECRET_KEY, DATABASE_URL, HOST, PORT
 from .modules.data.models import *
 
 # functions
 from .modules.functions.init.blueprints import get_blueprints
+from .modules.functions.init.db import init_db
 from .modules.functions.init.login_manager import init_login_manager
 
 
@@ -40,7 +44,11 @@ def create_app():
 if __name__ == "__main__":
     app = create_app()
     app.config["SECRET_KEY"] = APP_SECRET_KEY
+    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    init_db(app)
     init_login_manager(app)
     # init database connection maybe? unsure how modules will share it
+    environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     # app.run(debug=True, host=HOST, port=PORT, ssl_context="adhoc")  # development
     app.run(host=HOST, port=PORT)  # production

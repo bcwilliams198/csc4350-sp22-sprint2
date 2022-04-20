@@ -47,14 +47,15 @@ class Pokemon(db.Model):
     species_no = db.Column(db.Integer)  # National Dex no.
 
 
-class Ability(db.Model):
-    __tablename__ = "Ability"
-    id = db.Column(db.Integer, primary_key=True)
+# pretty sure these are unnecessary
+# class Ability(db.Model):
+#     __tablename__ = "Ability"
+#     id = db.Column(db.Integer, primary_key=True)
 
 
-class Move(db.Model):
-    __tablename__ = "Move"
-    id = db.Column(db.Integer, primary_key=True)
+# class Move(db.Model):
+#     __tablename__ = "Move"
+#     id = db.Column(db.Integer, primary_key=True)
 
 
 # relationships (cross-referencing tables)
