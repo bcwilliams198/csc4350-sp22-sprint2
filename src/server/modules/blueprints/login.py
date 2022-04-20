@@ -45,3 +45,9 @@ def login_request():
         scope=["openid", "email", "profile"],
     )
     return jsonify(request_uri)
+
+
+@login_blueprint.route("/login_request/callback")
+def login_request_callback():
+    # complete later
+    pass
