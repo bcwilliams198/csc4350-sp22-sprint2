@@ -64,7 +64,7 @@ def get_pokemon_data(pokemon):
         main_data["species_no"] = data["id"]
         main_data["sprite"] = data["sprites"]["front_default"]
         main_data["stats"] = [
-            mapper(stat, category="stat", properties=["base_stat"])
+            mapper(stat, category="stat", properties=["base_stat", "name"])
             for stat in data["stats"]
         ]
         main_data["types"] = [
