@@ -20,7 +20,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(30))
     # do we really need to store names/pics? we could just use the google username
     name = db.Column(db.String(100))
-    pic = db.Column(db.String(120))
+    picture = db.Column(db.String(120))
 
     def __repr__(self):
         return "<id = {self.id}, email = {self.email}, Name = {self.name}, Pic = {self.pic}>"

@@ -31,20 +31,6 @@ def logout():
 
 @login_blueprint.route("/login_request")
 def login_request():
-    # lacks error handling
-    # google_provider_cfg, error = get_google_provider_cfg()
-    # authorization_endpoint = google_provider_cfg["authorization_endpoint"]
-    # # use library to construct the request for login and provide
-    # # scopes that let you retrieve user's profile from Google
-    # redirect_uri = f"{request.base_url}/callback"
-    # if redirect_uri.startswith("http://"):
-    #     redirect_uri = redirect_uri.replace("http://", "https://")
-
-    # request_uri = client.prepare_request_uri(
-    #     authorization_endpoint,
-    #     redirect_uri=redirect_uri,
-    #     scope=["openid", "email", "profile"],
-    # )
     base_url = request.base_url
     if base_url.startswith("http://"):
         base_url = base_url.replace("http://", "https://")
@@ -63,17 +49,18 @@ def login_request_callback():
     if base_url.startswith("http://"):
         base_url = base_url.replace("http://", "https://")
 
-    # Get authorization code Google sent back to you
     code = request.args.get("code")
     google_user = get_google_user(url=url, base_url=base_url, code=code)
-    # print(google_user.get("email_verified"))
     if not google_user.get("email_verified"):
         return "User email not available or not verified by Google.", 400
 
-    # user = User.query.filter_by(email=users_email).first()
+    email = google_user["email"]
+    given_name = google_user["given_name"]
+    picture = google_user["picture"]
+    # user = User.query.filter_by(email=email).first()
     # if user is None:
-    #     user = User(email=users_email, name=users_name, pic=picture)
-    #     print("Adding a new user")
+    #     user = User(email=email, name=given_name, picture=picture)
+    #     # print("Adding a new user")
     #     # if not add them to db
     #     db.session.add(user)
     #     db.session.commit()
