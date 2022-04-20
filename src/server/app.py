@@ -48,7 +48,6 @@ if __name__ == "__main__":
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     init_db(app)
     init_login_manager(app)
-    # init database connection maybe? unsure how modules will share it
     environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     # app.run(debug=True, host=HOST, port=PORT, ssl_context="adhoc")  # development
     app.run(host=HOST, port=PORT)  # production

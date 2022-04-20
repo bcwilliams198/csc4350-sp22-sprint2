@@ -44,6 +44,9 @@ def login_request():
         redirect_uri=f"{request.base_url}/callback",
         scope=["openid", "email", "profile"],
     )
+    if request_uri.startswith("http://"):
+        request_uri = request_uri.replace("http://", "https://")
+
     return jsonify(request_uri)
 
 
