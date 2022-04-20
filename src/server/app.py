@@ -11,7 +11,8 @@ wildcard-import: using the wildcard is convenient (no need to change main file)
 ### IMPORTS
 ## third-party
 from flask import Flask
-from flask_cors import CORS
+
+# from flask_cors import CORS
 
 ## native
 # data
@@ -27,7 +28,7 @@ from .modules.functions.init.login_manager import init_login_manager
 ### FUNCTIONS
 def create_app():
     app = Flask(__name__, static_folder="../client/build", static_url_path="")
-    CORS(app)
+    # CORS(app)
     blueprints = get_blueprints()
     for blueprint in blueprints:
         app.register_blueprint(blueprint)
