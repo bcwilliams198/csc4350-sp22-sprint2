@@ -40,5 +40,5 @@ if __name__ == "__main__":
     app = create_app()
     init_login_manager(app)
     # init database connection maybe? unsure how modules will share it
-    app.run(debug=True, host=HOST, port=PORT, ssl_context="adhoc")  # development
-    # app.run(host=HOST, port=PORT)  # production
+    # app.run(debug=True, host=HOST, port=PORT, ssl_context="adhoc")  # development
+    app.run(host=HOST, port=PORT)  # production
