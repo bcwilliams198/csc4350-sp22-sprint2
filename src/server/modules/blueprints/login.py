@@ -44,7 +44,6 @@ def login_request():
         redirect_uri=f"{request.base_url}/callback",
         scope=["openid", "email", "profile"],
     )
-    print(f"{request.base_url}/callback")  # need to see if the redirect URL matches
     return jsonify(request_uri)
 
 

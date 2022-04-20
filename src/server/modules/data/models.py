@@ -62,7 +62,7 @@ class Pokemon(db.Model):
 class PokemonHasMove(db.Model):
     __tablename__ = "PokemonHasMove"
     pokemon = db.Column(db.Integer, db.ForeignKey("Pokemon.id"), primary_key=True)
-    move = db.Column(db.Integer, db.ForeignKey("Move.id"), primary_key=True)
+    move = db.Column(db.Integer, primary_key=True)
 
 
 class TeamHasPokemon(db.Model):
