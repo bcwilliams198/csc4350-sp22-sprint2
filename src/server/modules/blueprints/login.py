@@ -82,4 +82,4 @@ def login_request_callback():
     # login_user(user)
 
     # # Send user back to homepage
-    return redirect(url_for("index"))
+    return redirect(url_for("index.index"))
