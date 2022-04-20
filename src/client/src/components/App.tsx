@@ -1,9 +1,10 @@
 // IMPORTS
 // third-party
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // native
 import Login from "./Login";
+import { Home } from "./Home";
 
 
 export default function App() {
@@ -11,7 +12,7 @@ export default function App() {
         <div className="App">
             <Router>
                 <Routes>
-                    <Route path="/" element={<div></div>}></Route>
+                    <Route path="/" element={<Home />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                 </Routes>
             </Router>
