@@ -1,1 +1,1 @@
-web: python3 src/server/app.py
+web: python3 -m src.server.app
