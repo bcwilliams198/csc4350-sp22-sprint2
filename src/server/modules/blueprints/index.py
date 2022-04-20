@@ -1,12 +1,12 @@
 # pylint: disable = missing-function-docstring
 """
 Disabled Pylint Warnings & Justifications:
-missing-function-docstring: useful, but not necessary (maybe for polishing phase)
+missing-function-docstring: useful, but not necessary; takes up space
 """
 
 
 ### IMPORTS
-## third-party
+# third-party
 from flask import Blueprint, jsonify, redirect, url_for
 from flask_login import current_user
 from flask.helpers import send_from_directory
