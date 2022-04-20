@@ -39,14 +39,15 @@ def login_request():
     authorization_endpoint = google_provider_cfg["authorization_endpoint"]
     # use library to construct the request for login and provide
     # scopes that let you retrieve user's profile from Google
+    redirect_uri = f"{request.base_url}/callback"
+    if redirect_uri.startswith("http://"):
+        redirect_uri = redirect_uri.replace("http://", "https://")
+
     request_uri = client.prepare_request_uri(
         authorization_endpoint,
-        redirect_uri=f"{request.base_url}/callback",
+        redirect_uri=redirect_uri,
         scope=["openid", "email", "profile"],
     )
-    if request_uri.startswith("http://"):
-        request_uri = request_uri.replace("http://", "https://")
-
     return jsonify(request_uri)
 
 
