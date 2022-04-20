@@ -6,10 +6,11 @@ relative-beyond-top-level: pylint doesn't like relative imports
 """
 
 from ...blueprints.api import api_blueprint
+from ...blueprints.home import home_blueprint
 from ...blueprints.index import index_blueprint
 from ...blueprints.login import login_blueprint
 
 
 def get_blueprints():
-    blueprints = [api_blueprint, index_blueprint, login_blueprint]
+    blueprints = [api_blueprint, home_blueprint, index_blueprint, login_blueprint]
     return blueprints
