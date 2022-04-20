@@ -45,9 +45,9 @@ if __name__ == "__main__":
     app = create_app()
     app.config["SECRET_KEY"] = APP_SECRET_KEY
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # disable warnings
     init_db(app)
     init_login_manager(app)
-    environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+    environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  # what does this do?
     # app.run(debug=True, host=HOST, port=PORT, ssl_context="adhoc")  # development
     app.run(host=HOST, port=PORT)  # production
