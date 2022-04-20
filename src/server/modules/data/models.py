@@ -43,7 +43,7 @@ class Pokemon(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     owner = db.Column(db.Integer, db.ForeignKey("User.id"))
 
-    ability = db.Column(db.Integer, db.ForeignKey("Ability.id"))
+    ability = db.Column(db.Integer)
     species_no = db.Column(db.Integer)  # National Dex no.
 
 
