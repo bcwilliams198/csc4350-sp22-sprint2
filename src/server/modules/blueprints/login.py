@@ -34,6 +34,7 @@ def logout():
 
 @login_blueprint.route("/login_request")
 def login_request():
+    # lacks error handling
     google_provider_cfg, error = get_google_provider_cfg()
     authorization_endpoint = google_provider_cfg["authorization_endpoint"]
     # use library to construct the request for login and provide
